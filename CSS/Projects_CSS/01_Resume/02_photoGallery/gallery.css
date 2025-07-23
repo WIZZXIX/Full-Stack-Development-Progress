@@ -28,4 +28,5 @@ img {
 
 .gallery img:hover {
   transform: scale(2);
+  
 }

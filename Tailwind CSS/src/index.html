@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Tailwind Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-800 font-mono min-h-screen flex items-center justify-center p-4">
+
+  <div class="bg-white w-full max-w-sm p-6 sm:p-8 rounded-lg shadow-xl">
+    <h2 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-6">Login</h2>
+    
+    <form class="flex flex-col space-y-4">
+      <!-- Email Field -->
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Email" 
+        class="p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+        required
+      />
+
+      <!-- Password Field -->
+      <input 
+        type="password" 
+        name="password" 
+        placeholder="Password" 
+        class="p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+        required
+      />
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        class="bg-blue-600 text-white py-2 rounded-md text-lg hover:bg-blue-700 transition duration-300"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+
+</body>
+</html>
