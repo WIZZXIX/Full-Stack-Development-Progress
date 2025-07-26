@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suchit Manthen - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section
+      class="min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-gray-700 flex items-center justify-center px-6"
+    >
+      <!-- Navbar -->
+      <nav
+        class="fixed top-0 left-0 w-full z-50 bg-transparent backdrop-blur-md text-white"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <div class="flex-shrink-0 text-xl font-bold">
+              <a href="#">MyPortfolio</a>
+            </div>
+
+            <!-- Hamburger Button (Mobile) -->
+            <div class="md:hidden">
+              <button id="menu-btn" class="text-white focus:outline-none">
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Nav Links -->
+            <div
+              id="menu"
+              class="hidden md:flex md:space-x-6 md:items-center absolute md:static top-16 left-0 w-full md:w-auto bg-black/80 md:bg-transparent backdrop-blur-md md:backdrop-blur-0 flex-col md:flex-row text-center md:text-left"
+            >
+              <a
+                href="#about"
+                class="block px-4 py-2 hover:text-gray-300 transition"
+                >About</a
+              >
+              <a
+                href="#projects"
+                class="block px-4 py-2 hover:text-gray-300 transition"
+                >Projects</a
+              >
+              <a
+                href="#skills"
+                class="block px-4 py-2 hover:text-gray-300 transition"
+                >Skills</a
+              >
+              <a
+                href="#contact"
+                class="block px-4 py-2 hover:text-gray-300 transition"
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="max-w-6xl w-full text-white text-center space-y-8">
+        <!-- Hero Section -->
+        <div class="space-y-4">
+          <h1 class="text-5xl md:text-6xl font-extrabold drop-shadow-lg">
+            Hello, I'm <span class="text-yellow-300">Sophia Ray</span>
+          </h1>
+          <p class="text-lg md:text-2xl max-w-3xl mx-auto text-white/90">
+            A passionate Full-Stack Developer crafting modern, stunning, and
+            accessible websites with love and creativity.
+          </p>
+          <div class="flex justify-center space-x-4">
+            <a
+              href="#portfolio"
+              class="bg-white text-purple-700 font-semibold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition"
+              >View My Work</a
+            >
+            <a
+              href="#contact"
+              class="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-purple-700 transition"
+              >Contact Me</a
+            >
+          </div>
+        </div>
+
+        <!-- Profile Image -->
+        <div class="flex justify-center">
+          <img
+            src="https://i.imgur.com/7vQbFfR.png"
+            alt="Profile Image"
+            class="w-52 h-52 rounded-full border-4 border-white shadow-lg object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 bg-white dark:bg-gray-900 px-6">
+      <div class="max-w-5xl mx-auto text-center space-y-6">
+        <h2 class="text-3xl font-bold text-purple-600">About Me</h2>
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          I specialize in building scalable web applications using modern tech
+          stacks. I love solving complex problems, designing beautiful UI, and
+          delivering pixel-perfect products. With years of experience in React,
+          Next.js, Tailwind CSS, and backend systems, I bring ideas to life with
+          smooth performance and clean code.
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section
+      class="py-24 bg-gradient-to-br from-purple-500 via-pink-500 to-indigo-500 text-white px-6"
+    >
+      <div class="max-w-5xl mx-auto text-center space-y-12">
+        <h2 class="text-3xl font-bold mb-4">My Skills</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="bg-white/20 p-6 rounded-lg shadow-lg font-semibold">
+            React.js
+          </div>
+          <div class="bg-white/20 p-6 rounded-lg shadow-lg font-semibold">
+            Next.js
+          </div>
+          <div class="bg-white/20 p-6 rounded-lg shadow-lg font-semibold">
+            Tailwind CSS
+          </div>
+          <div class="bg-white/20 p-6 rounded-lg shadow-lg font-semibold">
+            Node.js
+          </div>
+          <div class="bg-white/20 p-6 rounded-lg shadow-lg font-semibold">
+            TypeScript
+          </div>
+          <div class="bg-white/20 p-6 rounded-lg shadow-lg font-semibold">
+            MongoDB
+          </div>
+          <div class="bg-white/20 p-6 rounded-lg shadow-lg font-semibold">
+            Figma
+          </div>
+          <div class="bg-white/20 p-6 rounded-lg shadow-lg font-semibold">
+            AWS
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Projects -->
+    <section id="portfolio" class="py-24 bg-white dark:bg-gray-900 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-purple-600 mb-8">Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Project Card 1 -->
+          <div
+            class="bg-gradient-to-br from-pink-400 to-purple-600 text-white rounded-lg shadow-lg overflow-hidden"
+          >
+            <img
+              src="https://source.unsplash.com/600x400/?technology,website"
+              class="w-full object-cover"
+              alt="Project 1"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Project Alpha</h3>
+              <p>
+                Complete e-commerce platform with payment gateway and admin
+                dashboard.
+              </p>
+            </div>
+          </div>
+          <!-- Project Card 2 -->
+          <div
+            class="bg-gradient-to-br from-indigo-400 to-purple-600 text-white rounded-lg shadow-lg overflow-hidden"
+          >
+            <img
+              src="https://source.unsplash.com/600x400/?software,webdesign"
+              class="w-full object-cover"
+              alt="Project 2"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Project Beta</h3>
+              <p>
+                Custom CRM system with live chat, customer pipelines and
+                analytics.
+              </p>
+            </div>
+          </div>
+          <!-- Project Card 3 -->
+          <div
+            class="bg-gradient-to-br from-pink-300 to-purple-500 text-white rounded-lg shadow-lg overflow-hidden"
+          >
+            <img
+              src="https://source.unsplash.com/600x400/?coding,developer"
+              class="w-full object-cover"
+              alt="Project 3"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">Project Gamma</h3>
+              <p>
+                Modern SaaS dashboard with real-time reporting and team
+                collaboration.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section
+      id="contact"
+      class="py-24 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white px-6"
+    >
+      <div class="max-w-xl mx-auto text-center space-y-8">
+        <h2 class="text-3xl font-bold">Let's Work Together</h2>
+        <form class="space-y-4">
+          <input
+            type="text"
+            placeholder="Your Name"
+            class="w-full px-4 py-3 rounded-lg text-black"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            class="w-full px-4 py-3 rounded-lg text-black"
+            required
+          />
+          <textarea
+            placeholder="Your Message"
+            rows="4"
+            class="w-full px-4 py-3 rounded-lg text-black"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            class="bg-white text-purple-700 font-bold px-6 py-3 rounded-full hover:scale-105 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-black text-white text-center">
+      <p>© 2025 Sophia Ray — All Rights Reserved</p>
+    </footer>
+  </body>
+</html>

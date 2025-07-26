@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Tip Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #1f2937;
+            --background-color: #111827;
+            --text-color: #e5e7eb;
+            --card-background: #1f2937;
+            --input-background: #374151;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        /* Calculator Container */
+        .calculator {
+            background-color: var(--card-background);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .calculator h1 {
+            text-align: center;
+            color: white;
+            margin-top: 0;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* Input Groups */
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--input-background);
+            border: 2px solid transparent;
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .tip-percentage-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .tip-percentage-group input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 8px;
+            background: var(--input-background);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .tip-percentage-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .tip-percentage-group input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        #tip-percentage-value {
+            font-weight: 600;
+            color: white;
+            min-width: 45px;
+        }
+
+        /* Results Section */
+        .results {
+            background-color: var(--background-color);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-item .label {
+            color: var(--text-color);
+        }
+
+        .result-item .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <h1>Tip Calculator</h1>
+
+        <!-- Bill Amount Input -->
+        <div class="input-group">
+            <label for="bill-amount">Bill Amount ($)</label>
+            <input type="number" id="bill-amount" class="input-field" placeholder="0.00" min="0">
+        </div>
+
+        <!-- Tip Percentage Slider -->
+        <div class="input-group">
+            <label for="tip-percentage">Tip Percentage</label>
+            <div class="tip-percentage-group">
+                <input type="range" id="tip-percentage" min="0" max="100" value="15">
+                <span id="tip-percentage-value">15%</span>
+            </div>
+        </div>
+
+        <!-- Number of People Input -->
+        <div class="input-group">
+            <label for="number-of-people">Number of People</label>
+            <input type="number" id="number-of-people" class="input-field" value="1" min="1">
+        </div>
+
+        <!-- Results Display -->
+        <div class="results">
+            <div class="result-item">
+                <span class="label">Tip Amount</span>
+                <span class="value" id="tip-amount">$0.00</span>
+            </div>
+            <div class="result-item">
+                <span class="label">Total Per Person</span>
+                <span class="value" id="total-per-person">$0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- JAVASCRIPT LOGIC ---
+
+        // 1. Select all the HTML elements we need and store them in constants.
+        const billAmountInput = document.getElementById('bill-amount');
+        const tipPercentageInput = document.getElementById('tip-percentage');
+        const numberOfPeopleInput = document.getElementById('number-of-people');
+        const tipPercentageValue = document.getElementById('tip-percentage-value');
+        const tipAmountValue = document.getElementById('tip-amount');
+        const totalPerPersonValue = document.getElementById('total-per-person');
+
+        // 2. Create a function to perform all the calculations.
+        function calculateTip() {
+            // Get the current values from the input fields.
+            // Use parseFloat() to convert the string values to numbers.
+            const billAmount = parseFloat(billAmountInput.value);
+            const tipPercentage = parseInt(tipPercentageInput.value);
+            const numberOfPeople = parseInt(numberOfPeopleInput.value);
+
+            // --- VALIDATION ---
+            // If billAmount is not a number (e.g., empty input), or less than 0, treat it as 0.
+            if (isNaN(billAmount) || billAmount < 0) {
+                // Reset display and stop the function
+                tipAmountValue.textContent = '$0.00';
+                totalPerPersonValue.textContent = '$0.00';
+                return;
+            }
+            // Ensure number of people is at least 1.
+            if (isNaN(numberOfPeople) || numberOfPeople < 1) {
+                // Don't calculate if this is invalid.
+                return;
+            }
+
+            // --- CALCULATIONS ---
+            const totalTip = billAmount * (tipPercentage / 100);
+            const totalBill = billAmount + totalTip;
+            const totalPerPerson = totalBill / numberOfPeople;
+
+            // --- DISPLAY RESULTS ---
+            // Use .toFixed(2) to ensure the output is always formatted to two decimal places (like currency).
+            tipAmountValue.textContent = `$${totalTip.toFixed(2)}`;
+            totalPerPersonValue.textContent = `$${totalPerPerson.toFixed(2)}`;
+        }
+
+        // 3. Create a function to update the tip percentage display next to the slider.
+        function updateTipDisplay() {
+            // Using a template literal to construct the string.
+            tipPercentageValue.textContent = `${tipPercentageInput.value}%`;
+        }
+
+        // 4. Add Event Listeners to trigger our functions.
+        // We want to recalculate whenever ANY of the inputs change.
+        billAmountInput.addEventListener('input', calculateTip);
+        tipPercentageInput.addEventListener('input', calculateTip);
+        numberOfPeopleInput.addEventListener('input', calculateTip);
+
+        // We also want to update the percentage display when the slider moves.
+        tipPercentageInput.addEventListener('input', updateTipDisplay);
+
+        // 5. Initial Calculation on page load.
+        // This ensures that if the inputs have default values, the calculation runs once when the page loads.
+        calculateTip();
+        updateTipDisplay();
+
+    </script>
+</body>
+</html>
