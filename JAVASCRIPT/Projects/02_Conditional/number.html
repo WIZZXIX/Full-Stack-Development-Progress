@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Number!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Guess My Number!</h1>
+    <div class="game-container">
+        <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+
+        <div class="input-area">
+            <input type="number" class="guess-input" id="guessInput" min="1" max="100">
+            <button class="btn guess-btn" id="guessBtn">Guess!</button>
+        </div>
+        <p class="feedback" id="feedbackText">Make your first guess!</p>
+
+        <div class="game-status">
+            <p>Guesses remaining: <span id="guessesRemaining">10</span></p>
+            <p>Previous guesses: <span id="previousGuesses">None</span></p>
+        </div>
+
+        <button class="btn play-again-btn" id="playAgainBtn">Play Again?</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

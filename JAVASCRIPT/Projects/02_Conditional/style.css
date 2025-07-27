@@ -1,0 +1,115 @@
+:root {
+    --bg-color: #222; 
+    --text-color: #eee; 
+    --success-color: #60b347; 
+    --warning-color: #f7b731; 
+    --error-color: #e74c3c; 
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color); 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0; 
+    padding: 16px; 
+    box-sizing: border-box; 
+}
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 16px; 
+}
+
+.game-container {
+    background-color: #333;
+    padding: 32px; 
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    width: 100%; 
+    max-width: 450px; 
+    text-align: center;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.input-area {
+    display: flex;
+    gap: 8px;
+    margin: 24px 0;
+}
+
+.guess-input {
+    font-family: 'Press Start 2P', cursive;
+    flex-grow: 1; 
+    padding: 16px; 
+    border: 2px solid #555; 
+    background-color: #444;
+    color: var(--text-color);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 24px;
+    width: 50%;
+}
+
+.guess-input:focus {
+    outline: none;
+    border-color: var(--warning-color);
+}
+
+.btn {
+    font-family: 'Press Start 2P', cursive;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+
+.guess-btn {
+    background-color: var(--warning-color);
+    color: #222;
+}
+
+.guess-btn:hover {
+    background-color: #f8c357;
+}
+
+.guess-btn:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+.play-again-btn {
+    background-color: var(--success-color);
+    color: white;
+    margin-top: 16px;
+    display: none; /* Hidden by default */
+}
+
+.play-again-btn:hover {
+    background-color: #7ed969;
+}
+
+.feedback {
+    font-size: 19px;
+    font-weight: bold;
+    min-height: 32px;
+    margin: 16px 0;
+}
+
+.game-stats {
+    margin-top: 24px;
+    font-size: 14px;
+    color: #ccc;
+}
