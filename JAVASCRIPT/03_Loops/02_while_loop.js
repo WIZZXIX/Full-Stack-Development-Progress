@@ -1,12 +1,17 @@
 //While Loop:
 //Use a while loop when you don't know how many times you need to repeat, but you know the condition that should stop the loop. 
 
-let isGameRunning = true; 
-let playerHealth = 100; 
-
-while (playerHealth > 0) {
-    console.log(`Player health is ${playerHealth}. Attacking monster!`); 
-    const damageTaken = 20; 
-    playerHealth -= damageTaken;
+let count = 1; 
+while (count <= 5) {
+    console.log(count); 
+    count++; 
 }
-console.log("Game Over! Player has been defeated."); 
+
+
+//do...while Loop: 
+//A do...while loop in JavaScript is a control structure where the code executes repeatedly based on a given boolean condition.
+let test = 1;
+do {
+    console.log(test);
+    test++;
+} while(test<=5);
