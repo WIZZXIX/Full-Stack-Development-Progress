@@ -2,7 +2,7 @@
 //Three keywords are: 1)const 2)let 3)var
 
 //1) const (constant)
-//const variable connot be reassigned
+//const variable connot be reassigned, it is a constant value. It is block-scoped variale. 
 const birthYear = 1995; 
 console.log(birthYear); //Output: 1995
 

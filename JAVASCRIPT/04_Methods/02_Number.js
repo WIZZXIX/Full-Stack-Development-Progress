@@ -57,3 +57,4 @@ console.log(random); //it's random.
 //Math.sqrt(): Returns the square root of a number.
 let num12 = 16; 
 console.log(Math.sqrt(num12)); //4
+
